@@ -2,14 +2,18 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { usePathname } from "next/navigation";
-import { useState } from "react";
+import { usePathname, useRouter } from "next/navigation";
+import { useEffect, useState } from "react";
 
 
 
 const SideNav = () => {
   const pathname = usePathname();
-  const [hoveredItem, setHoveredItem] = useState<string | null>(null);
+ const [hoveredItem, setHoveredItem] = useState<string | null>(null);
+ const [loading, setLoading] =useState(false);
+const router = useRouter();
+
+
 
   const navLinks = [
     {
@@ -62,19 +66,74 @@ const SideNav = () => {
     },
   ];
 
+
+    // <div className=" hidden  lg:block lg:w-[263px] bg-white text-gray-950 h-[900px] py-5">
+    //   <nav>
+    //     <ul className="">
+    //       {navLinks.map((link) => (
+    //         <li key={link.path} className="">
+    //           <Link
+    //             href={link.path}
+    //             className={`flex items-center p-2 transition-colors duration-300 px-6 text-sm ${
+    //               pathname === link.path
+    //                 ? "bg-blue-600 py-4 focus:text-white"
+    //                 : "hover:bg-blue-600 py-4 hover:text-white focus:text-white"
+    //             }`}
+    //             onMouseEnter={() => setHoveredItem(link.path)}
+    //             onMouseLeave={() => setHoveredItem(null)}
+    //           >
+    //             <div className="relative w-5 h-5 mr-2">
+    //               <Image
+    //                 src={
+    //                   hoveredItem === link.path || pathname === link.path
+    //                     ? link.icon?.white
+    //                     : link.icon?.black
+    //                 }
+    //                 alt={link.name}
+    //                 fill
+    //                 className="object-contain focus:text-white"
+    //               />
+    //             </div>
+    //             <span className="">{link.name}</span>
+    //           </Link>
+    //         </li>
+    //       ))}
+    //     </ul>
+    //   </nav>
+    // </div>
+
+
+
+    useEffect(() => {
+      setLoading(false);
+    }, [pathname]);
+
+    // Handle link clicks
+    const handleLinkClick = (href: string) => {
+      setLoading(true); // Set loading to true when a link is clicked
+      router.push(href); // Navigate to the new page
+    };
+
+
   return (
-    <div className=" hidden  lg:block lg:w-[263px] bg-white text-gray-950 h-[900px] py-5">
+    <div className="hidden lg:block lg:w-[263px] bg-white text-gray-950 h-[900px] py-5">
       <nav>
-        <ul className="">
+        <ul>
           {navLinks.map((link) => (
-            <li key={link.path} className="">
+            <li key={link.path}>
               <Link
                 href={link.path}
-                className={`flex items-center p-2 transition-colors duration-300 px-6 text-sm ${
+                className={`flex items-center p-2 focus:text-white transition-colors duration-300 px-6 text-sm ${
                   pathname === link.path
-                    ? "bg-blue-600 py-4 focus:text-white"
-                    : "hover:bg-blue-600 py-4 hover:text-white focus:text-white"
+                    ? "bg-blue-600 py-4  focus:bg-blue-600"
+                    : "hover:bg-blue-600 py-4 hover:text-white focus:bg-blue-600"
+                } ${
+                  loading ? "pointer-events-none opacity-50" : ""
                 }`}
+                onClick={(e) => {
+                  e.preventDefault();
+                  handleLinkClick(link.path)
+                }}
                 onMouseEnter={() => setHoveredItem(link.path)}
                 onMouseLeave={() => setHoveredItem(null)}
               >
@@ -87,10 +146,10 @@ const SideNav = () => {
                     }
                     alt={link.name}
                     fill
-                    className="object-contain focus:text-white"
+                    className="object-contain"
                   />
                 </div>
-                <span className="">{link.name}</span>
+                <span>{link.name}</span>
               </Link>
             </li>
           ))}

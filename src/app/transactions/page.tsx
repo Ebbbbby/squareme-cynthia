@@ -1,7 +1,6 @@
 "use client";
 
 import DateRangePicker from "@/components/DatePicker/DateRangePicker";
-// import { Pagination } from "@/components/Pagination/pagination";
 import Table from "@/components/Table/table";
 import { useHeader } from "@/contexts/HeaderContext";
 import Image from "next/image";

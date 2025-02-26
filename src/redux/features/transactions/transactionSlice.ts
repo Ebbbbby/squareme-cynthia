@@ -1,8 +1,7 @@
 import { TransactionProps } from "@/interfaces";
 import { createSlice, createAsyncThunk, PayloadAction } from "@reduxjs/toolkit";
-import { mockApiService } from "../../../services/MockTransactionApi";
-
-interface TransactionsState {
+import { mockApiService } from "../../../services/TransactionApi/MockTransactionApi";
+export interface TransactionsState {
   transactions: TransactionProps[];
   status: "idle" | "loading" | "succeeded" | "failed";
   error: string | null;
