@@ -34,7 +34,7 @@ const router = useRouter();
     },
     {
       name: "Accounts",
-      path: "/account",
+      path: "/accounts",
       icon: {
         black: "/assets/empty-wallet.svg",
         white: "/assets/empty-wallet2.svg",
@@ -67,51 +67,14 @@ const router = useRouter();
   ];
 
 
-    // <div className=" hidden  lg:block lg:w-[263px] bg-white text-gray-950 h-[900px] py-5">
-    //   <nav>
-    //     <ul className="">
-    //       {navLinks.map((link) => (
-    //         <li key={link.path} className="">
-    //           <Link
-    //             href={link.path}
-    //             className={`flex items-center p-2 transition-colors duration-300 px-6 text-sm ${
-    //               pathname === link.path
-    //                 ? "bg-blue-600 py-4 focus:text-white"
-    //                 : "hover:bg-blue-600 py-4 hover:text-white focus:text-white"
-    //             }`}
-    //             onMouseEnter={() => setHoveredItem(link.path)}
-    //             onMouseLeave={() => setHoveredItem(null)}
-    //           >
-    //             <div className="relative w-5 h-5 mr-2">
-    //               <Image
-    //                 src={
-    //                   hoveredItem === link.path || pathname === link.path
-    //                     ? link.icon?.white
-    //                     : link.icon?.black
-    //                 }
-    //                 alt={link.name}
-    //                 fill
-    //                 className="object-contain focus:text-white"
-    //               />
-    //             </div>
-    //             <span className="">{link.name}</span>
-    //           </Link>
-    //         </li>
-    //       ))}
-    //     </ul>
-    //   </nav>
-    // </div>
-
-
 
     useEffect(() => {
       setLoading(false);
     }, [pathname]);
 
-    // Handle link clicks
     const handleLinkClick = (href: string) => {
-      setLoading(true); // Set loading to true when a link is clicked
-      router.push(href); // Navigate to the new page
+      setLoading(true);
+      router.push(href);
     };
 
 
