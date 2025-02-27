@@ -13,12 +13,10 @@ const SideNav = () => {
  const [loading, setLoading] =useState(false);
 const router = useRouter();
 
-
-
   const navLinks = [
     {
       name: "Get Started",
-      path: "/get-started",
+      path: "/getStarted",
       icon: {
         black: "/assets/globe-02.svg",
         white: "/assets/globe-01.svg",

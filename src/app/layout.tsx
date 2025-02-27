@@ -6,7 +6,6 @@ import SideNav from "@/components/Sidenav/sidenav";
 import { HeaderProvider } from "@/contexts/HeaderContext";
 import { ReduxProvider } from "@/providers/ReduxProvider";
 
-// Initialize the Inter font
 const inter = Inter({
   subsets: ["latin"],
   variable: "--font-inter",

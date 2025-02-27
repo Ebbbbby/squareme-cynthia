@@ -44,8 +44,6 @@ const mockHeaders = [
 
 const mockRenderRow = (
   item: Transaction,
-  // index: number,
-  // isSelected: boolean
 ) => (
   <>
     <td className="px-6 py-4">{item.amount}</td>

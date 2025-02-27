@@ -5,7 +5,6 @@ import { configureStore } from "@reduxjs/toolkit";
 import Transaction from "./page";
 import { TransactionProps } from "../../interfaces";
 
-// Create a mock store with a reducer
 const mockTransactions: TransactionProps[] = [
   {
     id: "1",
@@ -27,7 +26,6 @@ const mockTransactions: TransactionProps[] = [
   },
 ];
 
-// Create a mock store with a reducer
 const store = configureStore({
   reducer: {
     transactions: (state = { transactions: [], status: "idle", error: null }) =>
