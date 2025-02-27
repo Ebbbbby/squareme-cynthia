@@ -1,4 +1,4 @@
-'use client'
+"use client";
 import Image from "next/image";
 import React from "react";
 import logo from "../../../public/assets/sq-logo.svg";
@@ -17,12 +17,11 @@ const Header = () => {
         <div className="flex justify-between items-center w-full p-6">
           <div className="block lg:hidden">
             <Image
-            src={menu}
-            alt="Squareme Icon"
-            width={24}
-            height={24}
-            className="max-w-[24px] max-h-[24px] flex-1 "
-
+              src={menu}
+              alt="Squareme Icon"
+              width={24}
+              height={24}
+              className="max-w-[24px] max-h-[24px] flex-1 "
             />
           </div>
           <Image

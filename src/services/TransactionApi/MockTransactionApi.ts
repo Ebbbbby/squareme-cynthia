@@ -1,4 +1,4 @@
-import {TransactionProps} from "../interfaces"
+import {TransactionProps} from "../../interfaces"
 
 const mockTransaction: TransactionProps[] = [
   {

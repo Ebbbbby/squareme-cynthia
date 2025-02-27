@@ -37,7 +37,7 @@ const transactionSlice = createSlice({
       )
       .addCase(fetchTransactions.rejected, (state, action) => {
         state.status = "failed";
-        state.error = action.error.message || "Failed to get transactionDate";
+        state.error = action.error.message || "Failed to fetch transactions";
       });
   },
 });

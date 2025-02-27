@@ -13,8 +13,8 @@ import Pagination from "@/components/Pagination/pagination";
 const Transaction = () => {
   const { setIsHeaderVisible } = useHeader();
   const dispatch = useAppDispatch();
-   const totalPages = 20;
-   const [currentPage] = useState(1);
+  const totalPages = 20;
+  const [currentPage] = useState(1);
 
   const { transactions, status, error } = useAppSelector(
     (state) => state.transactions
@@ -49,19 +49,17 @@ const Transaction = () => {
     setFilteredTransactions(transactions);
   }, [transactions]);
 
-
-
-    const handleDateChange = (startDate: Date | null, endDate: Date | null) => {
-      if (startDate && endDate) {
-        const filtered = transactions.filter((transaction) => {
-          const transactionDate = new Date(transaction.transactionDate);
-          return transactionDate >= startDate && transactionDate <= endDate;
-        });
-        setFilteredTransactions(filtered);
-      } else {
-        setFilteredTransactions(transactions);
-      }
-    };
+  const handleDateChange = (startDate: Date | null, endDate: Date | null) => {
+    if (startDate && endDate) {
+      const filtered = transactions.filter((transaction) => {
+        const transactionDate = new Date(transaction.transactionDate);
+        return transactionDate >= startDate && transactionDate <= endDate;
+      });
+      setFilteredTransactions(filtered);
+    } else {
+      setFilteredTransactions(transactions);
+    }
+  };
 
   if (status === "loading") {
     return <div>Loading transactions...</div>;
@@ -70,7 +68,6 @@ const Transaction = () => {
   if (status === "failed") {
     return <div>Error: {error}</div>;
   }
-
 
   const headers = [
     "Amount",

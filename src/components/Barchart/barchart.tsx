@@ -7,28 +7,20 @@ import {
   LinearScale,
   BarElement,
   Title,
-
 } from "chart.js";
 import { useAppDispatch, useAppSelector } from "@/hooks/reduxHooks";
 import { fetchBarChartData } from "@/redux/features/dashboard/barChartSlice";
 
-
-ChartJS.register(
-  CategoryScale,
-  LinearScale,
-  BarElement,
-  Title,
-
-);
+ChartJS.register(CategoryScale, LinearScale, BarElement, Title);
 
 const BarChart: React.FC = () => {
   const dispatch = useAppDispatch();
   const { data, status, error } = useAppSelector((state) => state.barChart);
-   useEffect(() => {
-     if (status === "idle") {
-       dispatch(fetchBarChartData());
-     }
-   }, [status, dispatch]);
+  useEffect(() => {
+    if (status === "idle") {
+      dispatch(fetchBarChartData());
+    }
+  }, [status, dispatch]);
 
   const options = {
     maintainAspectRatio: false,
@@ -63,7 +55,6 @@ const BarChart: React.FC = () => {
       <Bar data={data} options={options} />
     </div>
   );
-
 };
 
 export default BarChart;

@@ -2,7 +2,7 @@ import { DashboardChartProps } from "@/interfaces";
 import { mockApiService } from "@/services/DashboardApi/DashboardChartApi";
 import { createSlice, createAsyncThunk,  } from "@reduxjs/toolkit";
 
-interface BarChartState {
+export interface BarChartState {
   data: DashboardChartProps;
   status: 'idle' | 'loading' | 'succeeded' | 'failed';
   error: string | null;

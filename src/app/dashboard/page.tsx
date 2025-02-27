@@ -1,5 +1,5 @@
 "use client";
-import BarChart from "@/components/Barchart/barchart";
+import BarChart from "@/components/Barchart/barChart";
 import { useHeader } from "@/contexts/HeaderContext";
 import { useAppDispatch, useAppSelector } from "@/hooks/reduxHooks";
 import { fetchBankDetails } from "@/redux/features/dashboard/bankDetailsSlice";
